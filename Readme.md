@@ -4,7 +4,7 @@ Shadertoy.com has an online shader creation tool based on WebGL2 and GLSL 330; n
 
 
 The pixel shader codes have been converted to macOS' Metal Shading Language. The required uniforms
-iTime, iMouse are passed to be kernel function as u_time and u_mouse respectively. The uniform u_resolution can be calculate from the size of the drawable texture.
+iTime, iMouse are passed to be kernel function as u_time and u_mouse respectively. The uniform u_resolution can be calculated from the size of the drawable texture.
 
 
 Metal's 2D pixel coordinate system has its origin (0.0, 0.0) at the top left corner of the display area. 
