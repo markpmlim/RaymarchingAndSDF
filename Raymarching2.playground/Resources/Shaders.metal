@@ -153,23 +153,29 @@ float3 phongIllumination(float3 k_a, float3 k_d, float3 k_s, float alpha,
     const float3 ambientLight = 0.5 * float3(1.0, 1.0, 1.0);
     float3 color = ambientLight * k_a;
 
-    // The light source is rotating on a xz-plane at a distance 2.0 above origin.
+    // The light source is on a plane // to the xz-plane and is always at
+    // a distance 2.0 from the latter.
+    // It is rotating along the arc of a circle of radius 4.0 units.
     float3 light1Pos = float3(4.0 * sin(iTime),
                               2.0,
                               4.0 * cos(iTime));
     float3 light1Intensity = float3(0.4, 0.4, 0.4);
 
-    color += phongContribForLight(k_d, k_s, alpha, p, eye,
+    color += phongContribForLight(k_d, k_s, alpha,
+                                  p, eye,
                                   light1Pos,
                                   light1Intensity);
 
-    // The light source is rotating on a xy-plane at a distance 2.0 from origin.
+    // The light source is on a plane // to the xy-plane and is always
+    // at a distance 2.0 from the latter.
+    // It is rotating along the arc of a circle of radius 2.0 units.
     float3 light2Pos = float3(2.0 * sin(0.37 * iTime),
                               2.0 * cos(0.37 * iTime),
                               2.0);
     float3 light2Intensity = float3(0.4, 0.4, 0.4);
 
-    color += phongContribForLight(k_d, k_s, alpha, p, eye,
+    color += phongContribForLight(k_d, k_s, alpha,
+                                  p, eye,
                                   light2Pos,
                                   light2Intensity);    
     return color;
